@@ -110,7 +110,7 @@ class App {
     this.#map.setView(listCoord, this.view);
   }
 
-  _showMarker(workout) {
+  _renderMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -141,7 +141,7 @@ class App {
     inputElevation.closest('.form_row').classList.toggle('form_row-hidden');
   }
 
-  _showList(workout) {
+  _renderList(workout) {
     let html = `<li class="workout workout--${workout.type}" data-id="${
       workout.id
     }">
@@ -245,8 +245,8 @@ class App {
     this.workouts.push(workout);
 
     hideForm();
-    this._showList(workout);
-    this._showMarker(workout);
+    this._renderList(workout);
+    this._renderMarker(workout);
   }
 }
 
